@@ -1,0 +1,6 @@
+[submodule "batteries/cpr"]
+	path = batteries/cpr
+	url = https://github.com/whoshuu/cpr
+[submodule "batteries/tinyxml2"]
+	path = batteries/tinyxml2
+	url = https://github.com/leethomason/tinyxml2
