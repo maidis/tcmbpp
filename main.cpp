@@ -3,40 +3,34 @@
 int main()
 {
     TCMB tcmb;
-    tcmb.printCurrency(tcmb.getCurrency("USD"));
+    TCMB tcmb2("20.1.2009");
 
     Currency dolar = tcmb.getCurrency("USD");
-    std::cout << "Dolar alış: " << dolar.ForexBuying
-              << " dolar satış " << dolar.ForexSelling << '\n';
-
-    tcmb.printCurrency(tcmb.getCurrency("EUR"));
-    Currency euro = tcmb.getCurrency("EUR");
-    std::cout << "Euro alış: " << euro.ForexBuying
-              << " euro satış " << euro.ForexSelling << '\n';
-
-    TCMB tcmb2("20.1.2009");
-    tcmb2.printCurrency(tcmb2.getCurrency("USD"));
-
     Currency dolar2 = tcmb2.getCurrency("USD");
-    std::cout << "Dolar alış: " << dolar2.ForexBuying
-              << " dolar satış " << dolar2.ForexSelling << '\n';
-
-    tcmb2.printCurrency(tcmb2.getCurrency("EUR"));
+    Currency euro = tcmb.getCurrency("EUR");
     Currency euro2 = tcmb2.getCurrency("EUR");
-    std::cout << "Euro alış: " << euro2.ForexBuying
-              << " euro satış " << euro2.ForexSelling << '\n';
 
-    /*for (const auto &i : tcmb.currencyList)
-    {
-        std::cout << i.CurrencyCode << '\t'
-                  << i.Unit << '\t'
-                  << i.CurrencyNameTR << '\t'
-                  << i.ForexBuying << '\t'
-                  << i.ForexSelling << '\t'
-                  << i.CrossRateUSD << '\t'
-                  << i.CrossRateOther << '\n';
-    }*/
+    tcmb.printCurrency(dolar);
+    tcmb2.printCurrency(dolar2);
 
-    std::cout << "2009'dan 2018'e dolar farki: "
+    tcmb.printCurrency(euro);
+    tcmb2.printCurrency(euro2);
+
+    std::cout << "USD Forex Buying: " << dolar.ForexBuying
+              << " USD Forex Selling: " << dolar.ForexSelling << '\n';
+
+    std::cout << "20.1.2009 USD Forex Buying: " << dolar2.ForexBuying
+              << " 20.1.2009 USD Forex Selling: " << dolar2.ForexSelling << '\n';
+
+    std::cout << "The dollar value difference from 2009 to 2018: "
               << dolar.ForexBuying - dolar2.ForexBuying << '\n';
+
+    std::cout << "EUR Forex Buying: " << euro.ForexBuying
+              << " EUR Forex Selling " << euro.ForexSelling << '\n';
+
+    std::cout << "20.1.2009 EUR Forex Buying: " << euro2.ForexBuying
+              << " 20.1.2009 EUR Forex Selling " << euro2.ForexSelling << '\n';
+
+    //for (const auto &i : tcmb.currencyList)
+    //    tcmb.printCurrency(i);
 }
